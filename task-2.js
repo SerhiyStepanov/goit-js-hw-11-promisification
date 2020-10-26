@@ -14,7 +14,6 @@ const users = [
 // };
 
 const toggleUserState = (allUsers,userName) => {
-  const updatedUsers = allUsers;
   return new Promise((resolve) => { 
     resolve( allUsers.map(user =>
     user.name === userName ? { ...user, active: !user.active } : user,
