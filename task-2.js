@@ -5,15 +5,33 @@ const users = [
   { name: 'Lux', active: false },
 ];
 
-const toggleUserState = (allUsers, userName, callback) => {
-  const updatedUsers = allUsers.map(user =>
-    user.name === userName ? { ...user, active: !user.active } : user,
+// const toggleUserState = (allUsers, userName, callback) => {
+//   const updatedUsers = allUsers.map(user =>
+//     user.name === userName ? { ...user, active: !user.active } : user,
+//   );
+
+//   callback(updatedUsers);
+// };
+
+const toggleUserState = (allUsers,userName) => {
+  const DELAY = 1000;
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(allUsers)
+    }, DELAY)
+  })
+}
+
+// const updatedUsers = allUsers.map(user =>
+//     user.name === userName ? { ...user, active: !user.active } : user,
+//   );
+
+const logger = allUsers.map(user =>
+  user.name === userName ? { ...user, active: !user.active } : user,
+  console.table(logger)
   );
 
-  callback(updatedUsers);
-};
-
-const logger = updatedUsers => console.table(updatedUsers);
 
 /*
  * Сейчас работает так
