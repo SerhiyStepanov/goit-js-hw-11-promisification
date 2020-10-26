@@ -14,30 +14,26 @@ const users = [
 // };
 
 const toggleUserState = (allUsers,userName) => {
-  const DELAY = 1000;
-
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(allUsers)
-    }, DELAY)
+  const updatedUsers = allUsers;
+  return new Promise((resolve) => { 
+    resolve( allUsers.map(user =>
+    user.name === userName ? { ...user, active: !user.active } : user,
+))
   })
 }
 
 // const updatedUsers = allUsers.map(user =>
 //     user.name === userName ? { ...user, active: !user.active } : user,
-//   );
-
-const logger = allUsers.map(user =>
-  user.name === userName ? { ...user, active: !user.active } : user,
-  console.table(logger)
-  );
+// );
+  
+const logger = updatedUsers => console.table(updatedUsers);
 
 
 /*
  * Сейчас работает так
  */
-toggleUserState(users, 'Mango', logger);
-toggleUserState(users, 'Lux', logger);
+// toggleUserState(users, 'Mango', logger);
+// toggleUserState(users, 'Lux', logger);
 
 /*
  * Должно работать так
